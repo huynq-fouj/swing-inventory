@@ -1,0 +1,12 @@
+{
+    "name": "swing-inventory-manager",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "compile": "mvn compile",
+        "start": "mvn exec:java",
+        "dev": "mvn compile exec:java",
+        "build": "mvn clean install"
+    }
+}

@@ -1,0 +1,22 @@
+package swing.inventory.project.enums;
+
+public enum UserSortType {
+	ID_ASC,
+	ID_DESC,
+	FULLNAME_ASC,
+	FULLNAME_DESC,
+	IMAGE_ASC,
+	IMAGE_DESC,
+	NAME_ASC,
+	NAME_DESC,
+	EMAIL_ASC,
+	EMAIL_DESC,
+	PHONE_ASC,
+	PHONE_DESC,
+	LOGINED_ASC,
+	LOGINED_DESC,
+	ADDRESS_ASC,
+	ADDRESS_DESC,
+	NOTES_ASC,
+	NOTES_DESC,
+}
