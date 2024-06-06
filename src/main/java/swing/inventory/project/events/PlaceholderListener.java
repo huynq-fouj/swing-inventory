@@ -1,7 +1,6 @@
 package swing.inventory.project.events;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 

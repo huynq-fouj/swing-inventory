@@ -44,6 +44,7 @@ D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\projec
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\views\auth\Login.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\controllers\UserController.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\themes\IconPack.java
+D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\components\table\product\ComboBoxCellEditor.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\components\Dialog.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\contexts\ConnectionContext.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\utils\AppDataKey.java
@@ -53,6 +54,7 @@ D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\projec
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\models\category\CategoryImpl.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\models\category\Category.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\views\UserDetail.java
+D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\forms\product\GridBagConstraints.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\models\user\UserImpl.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\components\button\Button.java
 D:\LEARN\JAVA\built\swing-inventory-manager\src\main\java\swing\inventory\project\events\SortUserEvent.java

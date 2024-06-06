@@ -16,9 +16,7 @@ public class CategoryActionEvent implements TableActionEvent {
     }
 
     @Override
-    public void onView(int row) {
-        System.out.println("View category: " + table.getValueAt(row, 1));
-    }
+    public void onView(int row) {}
 
     @Override
     public void onEdit(int row) {
@@ -27,14 +25,26 @@ public class CategoryActionEvent implements TableActionEvent {
         item.setCategory_name((String) table.getValueAt(row, 1));
         item.setCategory_notes((String) table.getValueAt(row, 2));
         boolean confirm = Dialog.confirm(table, "Lưu thay đổi danh mục: " + item.getCategory_name());
-        if(confirm) {
+        if(confirm && checkValid(item)) {
             ConnectionPool cp = ConnectionContext.getCP();
             CategoryController cc = new CategoryController(cp);
             if(cp == null) ConnectionContext.setCP(cc.getCP());
             boolean result = cc.editCategory(item);
             cc.releaseConnection();
             if(!result) Dialog.error(table, "Không thể lưu thay đổi!");
+            else {
+                Dialog.success(table, "Cập nhật thông tin danh mục thành công!");
+                table.loadModel();
+            }
         }
+    }
+
+    private boolean checkValid(CategoryObject item) {
+        if(item.getCategory_name() == null || item.getCategory_name().trim().equals("")) {
+            Dialog.error(table, "Trường tên danh mục không được để trống!");
+            return false;
+        }
+        return true;
     }
 
     @Override

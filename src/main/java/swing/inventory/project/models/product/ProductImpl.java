@@ -109,7 +109,8 @@ public class ProductImpl extends BasicImpl implements Product {
 	}
 
 	@Override
-	public ResultSet getProducts(ProductObject similar, ProductSortType type) {
+	public ResultSet getProducts(ProductObject similar, int  page, int total, ProductSortType type) {
+		int at = (page - 1) * total;
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM tblproduct ")
 		.append("LEFT JOIN tblcategory ON tblproduct.product_category_id=tblcategory.category_id ")
@@ -169,6 +170,8 @@ public class ProductImpl extends BasicImpl implements Product {
 		default:
 			sql.append("ORDER BY product_id DESC");
 		}
+		sql.append(" ");
+		sql.append("LIMIT ").append(at).append(", ").append(total);
 		sql.append(";");
 		return this.gets(sql.toString());
 	}
@@ -192,6 +195,45 @@ public class ProductImpl extends BasicImpl implements Product {
 				String key = Utilities.encode(name);
 				conds.append(" ((product_name LIKE '%"+key+"%') OR ");
 				conds.append(" (product_details LIKE '%"+key+"%')) ");
+			}
+
+			int cid = similar.getProduct_category_id();
+			if(cid > 0) {
+				if(!conds.toString().equalsIgnoreCase("")) {
+					conds.append(" AND ");
+				}
+				conds.append(" (product_category_id="+cid+") ");
+			}
+
+			String price = similar.getProduct_details();
+			if(price != null && !price.equals("") && price.indexOf(":") != -1) {
+				String prices[] = price.split(":");
+				if(prices.length == 2) {
+					String strMin = prices[0].trim();
+					String strMax = prices[1].trim();
+					if(!strMin.equals("")) {
+						try {
+							Double min = Double.parseDouble(strMin);
+							if(min > 0) {
+								if(!conds.toString().equalsIgnoreCase("")) {
+									conds.append(" AND ");
+								}
+								conds.append(" (product_price>"+min+") ");
+							}
+						} catch (Exception e) {}
+					}
+					if(!strMax.equals("")) {
+						try {
+							Double max = Double.parseDouble(strMax);
+							if(max > 0) {
+								if(!conds.toString().equalsIgnoreCase("")) {
+									conds.append(" AND ");
+								}
+								conds.append(" (product_price<"+max+") ");
+							}
+						} catch (Exception e) {}
+					}
+				}
 			}
 		}
 

@@ -76,7 +76,7 @@ public class ProductTableModel extends AbstractTableModel {
             case 3: 
                 try {
                     int q = Integer.parseInt((String) value);
-                    item.setProduct_quantity(q);
+                    if(q >= 0) item.setProduct_quantity(q);
                 } catch (Exception e) {
                     Logger.getLogger(ProductTableModel.class.getName()).info(e.getMessage());
                 }
@@ -84,7 +84,7 @@ public class ProductTableModel extends AbstractTableModel {
             case 4: 
                 try {
                     double p = Double.parseDouble((String) value);
-                    item.setProduct_price(p);
+                    if(p >= 0) item.setProduct_price(p);
                 } catch (Exception e) {
                     Logger.getLogger(ProductTableModel.class.getName()).info(e.getMessage());
                 }
@@ -93,7 +93,7 @@ public class ProductTableModel extends AbstractTableModel {
                 break;
             case 6: item.setProduct_unit((String) value);
                 break;
-            case 7: //item.setProduct_category_id((int) value);
+            case 7: if(value != null) item.setCategory_name((String) value);
                 break;
             case 8: item.setProduct_details((String) value);
                 break;

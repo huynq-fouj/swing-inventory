@@ -54,8 +54,8 @@ public class ProductController {
 		return this.pm.getProduct(id);
 	}
 
-	public ArrayList<ProductObject> getProducts(ProductObject similar, ProductSortType type) {
-		return this.pm.getProducts(similar, type);
+	public ArrayList<ProductObject> getProducts(ProductObject similar, int page, int total, ProductSortType type) {
+		return this.pm.getProducts(similar, page, total, type);
 	}
 
 	public int countProduct(ProductObject similar) {
@@ -67,7 +67,8 @@ public class ProductController {
 	}
 
 	public void export(File fileToSave, String ext) {
-		List<ProductObject> items = getProducts(null, ProductSortType.ID_ASC);
+		int total = countProduct(null);
+		List<ProductObject> items = getProducts(null, 1, total, ProductSortType.ID_ASC);
 		String[] columns = {"ID", "Tên sản phẩm", "Số lượng",
 			"Đơn giá", "Danh mục", "Mô tả",
 			"Kích thước", "Đơn vị tính", "ID người tạo",

@@ -63,10 +63,10 @@ public class ProductModel {
 		return item;
 	}
 
-	public ArrayList<ProductObject> getProducts(ProductObject similar, ProductSortType type) {
+	public ArrayList<ProductObject> getProducts(ProductObject similar, int page, int total, ProductSortType type) {
 		ArrayList<ProductObject> items = new ArrayList<>();
 		ProductObject item = null;
-		ResultSet rs = this.p.getProducts(similar, type);
+		ResultSet rs = this.p.getProducts(similar, page, total, type);
 		if (rs != null) {
 			try {
 				while (rs.next()) {

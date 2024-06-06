@@ -41,7 +41,7 @@ public class ProductTable extends MyTable implements Table {
         ConnectionPool cp = ConnectionContext.getCP();
         ProductController pc = new ProductController(cp);
         if(cp == null) ConnectionContext.setCP(pc.getCP());
-        List<ProductObject> items = pc.getProducts(similar, sortType);
+        List<ProductObject> items = pc.getProducts(similar, currentPage, totalPerPage, sortType);
         int total = pc.countProduct(similar);
         pc.releaseConnection();
         //Count page
@@ -54,6 +54,7 @@ public class ProductTable extends MyTable implements Table {
         getColumnModel().getColumn(9).setCellRenderer(new ActionCellRenderer());
         getColumnModel().getColumn(9).setCellEditor(new ActionCellEditor(new ProductActionEvent(this)));
         getColumnModel().getColumn(1).setCellRenderer(new ImageCellRenderer());
+        getColumnModel().getColumn(7).setCellEditor(new ComboBoxCellEditor());
         getColumnModel().getColumn(0).setMaxWidth(60);
         getColumnModel().getColumn(0).setMinWidth(60);
         getColumnModel().getColumn(1).setMaxWidth(70);

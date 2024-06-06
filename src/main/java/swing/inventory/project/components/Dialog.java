@@ -35,12 +35,12 @@ public class Dialog {
 	
 	public static boolean confirm(Component component, String label, String title) {
 		int check = JOptionPane.showConfirmDialog(component, label, title,
-				JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 		return check == JOptionPane.YES_OPTION;
 	}
 	
 	public static boolean confirm(Component component, String label) {
-		return Dialog.confirm(component, label, "Warning");
+		return Dialog.confirm(component, label, "Confirm");
 	}
 	
 }
