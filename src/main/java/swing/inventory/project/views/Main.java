@@ -45,6 +45,7 @@ public class Main extends JFrame {
 		appData = AppData.getData();
 		initComponents();
 		switchForm("home");
+		setCurrentFrame(this);
 	}
 
 	private void setForm(JComponent com) {
@@ -81,7 +82,7 @@ public class Main extends JFrame {
 		
 	}
 
-	private void switchForm(String form) {
+	public void switchForm(String form) {
 		switch (form) {
 			case "home":
 				setForm(new HomeForm());
@@ -283,6 +284,16 @@ public class Main extends JFrame {
 
 	private String getIcon(String path) {
 		return IconPack.getIcon(path);
+	}
+
+	private static Main currentFrame;
+
+	private static void setCurrentFrame(Main frame) {
+		currentFrame = frame;
+	}
+
+	public static Main getCurrentFrame() {
+		return currentFrame;
 	}
 	
 }
