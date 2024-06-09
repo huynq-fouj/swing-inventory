@@ -7,10 +7,12 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 
 import swing.inventory.project.components.table.Table;
 import swing.inventory.project.themes.Colors;
 import swing.inventory.project.themes.Fonts;
+import swing.inventory.project.utils.Resource;
 
 public class Pagination extends JPanel {
 
@@ -83,33 +85,63 @@ public class Pagination extends JPanel {
     }
 
     private JPanel prevButton() {
-        JPanel panel = createPanel("<");
+        ImageIcon iconLight = new ImageIcon(Resource.loadStaticImagePath("light_icons\\chevron_left.png"));
+        ImageIcon iconDark = new ImageIcon(Resource.loadStaticImagePath("icons\\chevron_left.png"));
+        JPanel panel = new JPanel();
+        panel.setBackground(Colors.White);
+        panel.setBorder(new EmptyBorder(3, 2, 3, 2));
+        JLabel label = new JLabel();
+        label.setIcon(iconDark);
+        panel.add(label);
         panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+                panel.setBackground(Colors.Primary);
+                label.setIcon(iconLight);
+            }
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+                panel.setBackground(Colors.White);
+                label.setIcon(iconDark);
+            } 
             @Override
             public void mouseClicked(MouseEvent arg0) {
                 table.setCurrentPage(table.getCurrentPage() - 1);
                 table.loadModel();
                 reload();
-            }
+            }  
         });
         return panel;
     }
 
     private JPanel nextButton() {
-        JPanel panel = createPanel(">");
+        ImageIcon iconLight = new ImageIcon(Resource.loadStaticImagePath("light_icons\\chevron_right.png"));
+        ImageIcon iconDark = new ImageIcon(Resource.loadStaticImagePath("icons\\chevron_right.png"));
+        JPanel panel = new JPanel();
+        panel.setBackground(Colors.White);
+        panel.setBorder(new EmptyBorder(3, 2, 3, 2));
+        JLabel label = new JLabel();
+        label.setIcon(iconDark);
+        panel.add(label);
         panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+                panel.setBackground(Colors.Primary);
+                label.setIcon(iconLight);
+            }
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+                panel.setBackground(Colors.White);
+                label.setIcon(iconDark);
+            } 
             @Override
             public void mouseClicked(MouseEvent arg0) {
                 table.setCurrentPage(table.getCurrentPage() + 1);
                 table.loadModel();
                 reload();
-            } 
+            }
         });
         return panel;
-    }
-
-    private JPanel createPanel(String content) {
-        return createPanel(content, false);
     }
 
     private JPanel createPanel(String content, boolean isActive) {
