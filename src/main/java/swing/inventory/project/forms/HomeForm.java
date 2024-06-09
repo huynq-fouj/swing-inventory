@@ -14,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.poi.ss.usermodel.Color;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -79,9 +78,9 @@ public class HomeForm extends Form {
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = createGridBagConstraints();
         String name = AuthContext.getUser().getUser_fullname();
-        JLabel title = createLabel("Hi, " + name, 
-            Fonts.fontBold(24)
-        );
+        JLabel title = createLabel();
+        title.setFont(Fonts.fontBold(24));
+        title.setText("<html><div style=\"width:190px;\">Hi, "+name+"</div></html>");
         title.setForeground(Colors.White);
         panel.add(title, gbc);
         gbc.gridy = 1;
