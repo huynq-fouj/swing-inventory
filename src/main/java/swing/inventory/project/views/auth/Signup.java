@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,6 +21,7 @@ import swing.inventory.project.components.button.Button;
 import swing.inventory.project.components.button.ButtonType;
 import swing.inventory.project.controllers.AuthController;
 import swing.inventory.project.themes.Colors;
+import swing.inventory.project.utils.Resource;
 
 public class Signup extends JFrame {
 
@@ -33,21 +35,22 @@ public class Signup extends JFrame {
 	private JPasswordField pwdConfirm;
 
 	public Signup() {
-		this.initUI();
+		initUI();
 	}
 
 	public void initUI() {
-		this.setTitle("Đăng ký");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(400, 460);
-		this.contentPane = this.createContentPane();
-		this.setContentPane(this.contentPane);
-		this.setResizable(false);
-		this.setLocationRelativeTo(null);
+		setTitle("Đăng ký");
+		setIconImage(new ImageIcon(Resource.loadStaticImagePath("application_icons\\auth.png")).getImage());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(400, 460);
+		contentPane = createContentPane();
+		setContentPane(contentPane);
+		setResizable(false);
+		setLocationRelativeTo(null);
 	}
 
 	public JPanel createContentPane() {
-		JPanel panel = this.createPanel();
+		JPanel panel = createPanel();
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		panel.setLayout(new GridBagLayout());

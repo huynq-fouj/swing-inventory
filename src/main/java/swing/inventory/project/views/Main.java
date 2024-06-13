@@ -67,6 +67,7 @@ public class Main extends JFrame {
 		Rectangle r = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
 		setBounds(0, 0, r.width, r.height);
 		setTitle("Inventory Manager");
+		setIconImage(new ImageIcon(Resource.loadStaticImagePath("application_icons\\store.png")).getImage());
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);

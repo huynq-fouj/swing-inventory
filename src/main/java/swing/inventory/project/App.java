@@ -8,7 +8,6 @@ import java.awt.EventQueue;
 
 import swing.inventory.project.controllers.UserController;
 import swing.inventory.project.objects.UserObject;
-import swing.inventory.project.views.Main;
 import swing.inventory.project.views.auth.AuthPage;
 
 public class App {
@@ -20,7 +19,6 @@ public class App {
 
 		EventQueue.invokeLater(() -> {
 			AuthPage frame = new AuthPage();
-			//Main frame = new Main();
 			frame.setVisible(true);
 		});
     }

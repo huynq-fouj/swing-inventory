@@ -34,6 +34,7 @@ public class AuthPage extends JFrame {
 		setTitle("Phần mềm quản lý sản phẩm");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(0, 0, 650, 400);
+		setIconImage(new ImageIcon(Resource.loadStaticImagePath("application_icons\\store.png")).getImage());
 		setContentPane(createPanel());
 		setLocationRelativeTo(null);
 		setResizable(false);

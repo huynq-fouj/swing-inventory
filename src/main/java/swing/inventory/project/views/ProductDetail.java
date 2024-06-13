@@ -23,6 +23,7 @@ import swing.inventory.project.objects.UserObject;
 import swing.inventory.project.themes.Colors;
 import swing.inventory.project.themes.Fonts;
 import swing.inventory.project.themes.IconPack;
+import swing.inventory.project.utils.Resource;
 
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
@@ -58,7 +59,8 @@ public class ProductDetail extends JFrame {
 		mainPanel.setOpaque(false);
         Rectangle r = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
 		setBounds(0, 0, r.width - 100, r.height - 80);
-		setTitle("Inventory Manager");
+		setTitle("Thông tin sản phẩm");
+        setIconImage(new ImageIcon(Resource.loadStaticImagePath("application_icons\\product.png")).getImage());
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
